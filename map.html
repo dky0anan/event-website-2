@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>【2026 鳳凰科技教師研習營】官方網站</title> 
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* 讓地圖區塊更寬 */
+        .wide-map-section {
+            width: 100%;
+            max-width: 1400px; 
+            margin: 0 auto;
+            padding: 0 20px; 
+        }
+
+        .map-embed-container {
+            width: 100%;
+            border-radius: 15px; 
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+            margin-bottom: 30px;
+        }
+
+        /* 保持原本的並列樣式 */
+        .parallel-container {
+            display: flex;
+            flex-wrap: wrap; 
+            gap: 40px;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-top: 40px;
+        }
+
+        .column-half {
+            flex: 1;
+            min-width: 350px;
+        }
+
+        .section-title {
+            color: var(--accent-gold);
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            text-align: center;
+            border-bottom: 2px solid rgba(212, 175, 55, 0.3);
+            padding-bottom: 10px;
+        }
+
+        .info-text {
+            color: var(--text-secondary);
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .column-half img {
+            width: 85%;
+            height: auto;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+            margin-bottom: 20px;
+        }
+
+        @media (max-width: 992px) {
+            .parallel-container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="site-logo">
+                <img src="logo.png" alt="Logo" class="logo-image">
+            </a>
+            
+            <button class="hamburger-menu" aria-label="Toggle navigation">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html">首頁</a></li>
+                <li><a href="about.html">活動介紹</a></li> 
+                <li><a href="map.html" class="active">交通資訊</a></li> 
+                <li><a href="gallery.html">精彩回顧</a></li>
+                <li><a href="register.html">報名專區</a></li>
+                <li><a href="contact.html">聯絡資訊</a></li>
+            </ul>
+        </div>
+    </nav>
+
+<main class="section" style="padding-top: 120px;">
+    <div class="container" style="text-align: center; margin-bottom: 40px;">
+        <h2>實體課程地點</h2>
+        <p class="subtitle">國立成功大學電機系館 / 啟端館 openlab (台南市東區大學路 1 號)</p>
+    </div>
+
+    <div class="wide-map-section">
+        <div class="map-embed-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3672.7367130030675!2d120.2199676756202!3d22.996707279191995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e7694a879f56b%3A0x5cd808e8814beed1!2z5ZyL56uL5oiQ5Yqf5aSn5a246Zu75qmf5bel56iL5a2457O7!5e0!3m2!1szh-TW!2stw!4v1766296319761!5m2!1szh-TW!2stw" width="100%" height="500" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+        
+        <div style="text-align: center; margin-bottom: 60px;">
+            <a href="https://maps.app.goo.gl/Gu1cqCWm24hWfNJp8" target="_blank" class="map-link-button">
+                導航至活動地點 (Google Maps)
+            </a>
+        </div>
+    </div>
+
+    <div class="container">
+        <hr style="opacity: 0.1; margin-bottom: 50px;">
+
+        <div class="parallel-container">
+            <div class="column-half">
+                <h3 class="section-title">🚗 停車資訊</h3>
+                <p class="info-text">建議參考下方自強校區停車格分布地圖，紅色線(或其框框範圍內)為設有停車格之區域。</p>
+                <a href="car.PNG" target="_blank">
+                    <img src="car.PNG" alt="停車地圖">
+                </a>
+                <p style="color: var(--text-secondary); font-size: 0.95em;">
+                    或請參考：<a href="https://serv-oga.ncku.edu.tw/p/450-1057-29978,c1.php?Lang=zh-tw" target="_blank" style="color: var(--accent-gold); text-decoration: underline;">校園周邊汽車停車場資訊</a>
+                </p>
+            </div>
+
+            <div class="column-half">
+                <h3 class="section-title">📍 入口位置</h3>
+                <p class="info-text" style="margin-top: 45px; font-weight: bold; color: var(--accent-gold);">📍電機系館</p>
+                <a href="map1.JPG" target="_blank">
+                    <img src="map1.JPG" alt="入口 1">
+                </a>
+                <p class="info-text" style="margin-top: 20px; font-weight: bold; color: var(--accent-gold);">📍啟端館</p>
+                <a href="map2.JPG" target="_blank">
+                    <img src="map2.JPG" alt="入口 2">
+                </a>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer class="minimal-footer">
+    <div class="container">
+        © 2026 鳳凰科技教師研習營 | 國立成功大學電機工程學系 主辦
+    </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

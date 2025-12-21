@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>【2026 鳳凰科技教師研習營】官方網站</title> 
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .feedback-section {
+            margin-top: 80px;
+            padding-bottom: 60px;
+        }
+        .feedback-title {
+            color: #d4af37;
+            text-align: center;
+            font-size: 2.2em;
+            margin-bottom: 40px;
+        }
+        
+        .feedback-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .feedback-card {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: left;
+        }
+
+        .card-category {
+            color: #d4af37;
+            font-size: 1.4em;
+            font-weight: bold;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* 🎯 這是新增的每條心得小框框樣式 */
+        .comment-item {
+            background: rgba(255, 255, 255, 0.07); /* 微亮的小框框 */
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-left: 4px solid #d4af37; /* 左側金黃色飾條，增加質感 */
+            color: #ffffff;
+            line-height: 1.6;
+            font-size: 0.98em;
+            transition: background 0.3s ease;
+        }
+
+        .comment-item:hover {
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        @media (max-width: 992px) {
+            .feedback-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+<nav class="navbar">
+    <div class="container">
+        <a href="index.html" class="site-logo">
+            <img src="logo.png" alt="Logo" class="logo-image">
+        </a>
+        <button class="hamburger-menu" aria-label="Toggle navigation">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="index.html">首頁</a></li>
+            <li><a href="about.html">活動介紹</a></li> 
+            <li><a href="map.html">交通資訊</a></li> 
+            <li><a href="gallery.html" class="active">精彩回顧</a></li>
+            <li><a href="register.html">報名專區</a></li>
+            <li><a href="contact.html">聯絡資訊</a></li>
+        </ul>
+    </div>
+</nav>
+
+<main id="gallery-section" class="section gallery" style="padding-top: 120px; padding-bottom: 80px;">
+    <div class="container">
+        <h2 style="text-align: center;">📸 精彩回顧：往屆照片集</h2>
+        <p class="subtitle" style="text-align: center;">2025 鳳凰科技教師研習營</p>
+        
+        <div class="photo-grid">
+            <div class="photo-item"><img src="photo1.JPG" alt="照片 1"></div>
+            <div class="photo-item"><img src="photo2.JPG" alt="照片 2"></div>
+            <div class="photo-item"><img src="photo3.JPG" alt="照片 3"></div>
+            <div class="photo-item"><img src="photo4.JPG" alt="照片 4"></div>
+            <div class="photo-item"><img src="photo5.JPG" alt="照片 5"></div>
+            <div class="photo-item"><img src="photo8.JPG" alt="照片 8"></div>
+            <div class="photo-item"><img src="photo9.PNG" alt="照片 9"></div>
+            <div class="photo-item"><img src="photo11.PNG" alt="照片 11"></div>
+        </div>
+
+        <div class="feedback-section">
+            <h2 class="feedback-title">💬 寶貴心得與建議</h2>
+            
+            <div class="feedback-grid">
+                <div class="feedback-card">
+                    <div class="card-category"><span>🎤</span> 1. 講座 / 座談會</div>
+                    <div class="comment-item">：這場演講以大學端的觀點，非常有說服力。回到學校可以陳述給學生。</div>
+                    <div class="comment-item">：對大學教授如何看待目前學生的審查資料有更清楚的看法。</div>
+                    <div class="comment-item">：可以更直接了解大學端看待學習歷程的態度，十分有收穫。</div>
+                    <div class="comment-item">：更加了解大學端教授會想要的學習歷程內容,可以針對著重的點做準備,避免掉一些不需要的內容。</div>
+                    <div class="comment-item">：在會中與會後聚餐中都有機會和主講人交流，也盡其所知分享了，收穫頗豐碩，而且其專業知識與工作內容都透徹了解，所有問題都能從容回答，絕對令人放心將學生交給成大電機普渡組。</div>
+                </div>
+
+                <div class="feedback-card">
+                    <div class="card-category"><span>🔬</span> 2. 實驗室參訪</div>
+                    <div class="comment-item">：了解目前發展及研究生的學習，非常有幫助。</div>
+                    <div class="comment-item">：了解實驗室在做些什麼，對於未來出路如果要介紹給學生會比較具體。</div>
+                    <div class="comment-item">：領域非常專業，見解深刻。</div>
+                    <div class="comment-item">：對於研究生的研究重點有較實務、較具體的瞭解。</div>
+                    <div class="comment-item">：研究生們很認真分享，很棒的經驗！</div>
+                    <div class="comment-item">：很棒的經驗，以小組方式實際參觀實驗室，參觀學生們的研究，可更深入的了解其設計的歷程與目標。</div>
+                </div>
+
+                <div class="feedback-card">
+                    <div class="card-category"><span>🔊</span> 3. DIY 藍芽喇叭</div>
+                    <div class="comment-item">：很有成就感。雖然焊接需要一些經驗與巧手，但成果令人滿意。</div>
+                    <div class="comment-item">：能夠自己做出小成品帶回家，而且是生活上實用的東西，覺得很棒！</div>
+                    <div class="comment-item">：比想像中的有趣且實用，教材上還將每個老師的名字刻上，令人感動。</div>
+                    <div class="comment-item">：雖然是第一次嘗試，但收穫很多，了解電路連接方式與工具使用。</div>
+                    <div class="comment-item">：這是此次的大亮點，充分結合專業與實作，很多步驟、動作都是第一次嘗試(例如焊接)，教師群也能盡力協助學員完成，更從中了解基礎的線路知識、音聲原理，實務上也認識材料取得來源，使學員有興趣可以自行在家操作。</div>
+                </div>
+
+                <div class="feedback-card">
+                    <div class="card-category"><span>✨</span> 4. 整體心得或意見</div>
+                    <div class="comment-item">：除了增進自己的新知識、新想法，也更能增進對成大電機系所的認識。（很感動系所教授都是真心為學生努力不懈，令人敬佩)</div>
+                    <div class="comment-item">：感謝成大電機，讓我們在指導學生時，有較多較正確的資訊可以提供。</div>
+                    <div class="comment-item">：謝謝成大電機系的安排，能讓高中老師對成大電機的辦學與特色有更多的理解與認同。</div>
+                    <div class="comment-item">：很充實,也能夠讓我們從中更了解電機系所學與生活中的連結應用。</div>
+                    <div class="comment-item">：很感謝成大電機辦的營隊！讓我對電機電子領域有更深入的了解,未來在上生涯輔導課程可以給學生更多資訊！！</div>
+                    <div class="comment-item">：希望還會有機會參與成大辦的營隊！</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer class="minimal-footer">
+    <div class="container">
+        <p class="copyright">© 2026 鳳凰科技教師研習營 | 國立成功大學電機工程學系 主辦</p>
+    </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,608 @@
+/* ==================================== */
+/* 1. 顏色變數與全域設定 (沉穩深藍主題) */
+/* ==================================== */
+
+:root {
+    --primary-blue: #1C3144;     /* 主題色：沉穩海軍藍 */
+    --secondary-color: #385671;  /* 輔助色：較淺的海軍藍 (Hover) */
+    --dark-blue: #0C1E2B;        /* 主要深色背景 (深靛藍/近黑) */
+    --light-bg: #1A344E;         /* 次要深色背景 (卡片/項目背景) */
+    --text-dark: #F0F0F0;        /* 深色背景下的主要文字顏色 (灰白) */
+    --text-light: #F0F0F0;       /* 淺色文字 */
+    --link-hover: #ffffff;       /* 連結懸停亮色 */
+    --accent-color: #A3D2E8;     /* 新增強調色：柔和的淡藍色 (用於標題、邊框) */
+}
+
+/* 全域基本設定 */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    color: var(--text-dark); 
+    background-color: var(--dark-blue); 
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- 區塊通用樣式 --- */
+.section {
+    padding: 60px 0;
+    text-align: center;
+    background-color: var(--dark-blue);
+}
+
+.section h2 {
+    font-size: 2.5em;
+    color: var(--accent-color);
+    margin-bottom: 30px;
+    border-bottom: 3px solid rgba(163, 210, 232, 0.5);
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+
+/* ==================================== */
+/* 2. 導覽列 (Navbar)          */
+/* ==================================== */
+
+.navbar {
+    background-color: var(--dark-blue);
+    color: var(--text-light);
+    padding: 15px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    border-bottom: 1px solid var(--accent-color);
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative; 
+}
+
+.site-logo {
+    margin-right: auto; /* 讓 Logo 靠左，選單靠右 */
+}
+
+.logo-image {
+    height: 40px;
+    width: auto;
+    vertical-align: middle;
+}
+
+/* --- 寬螢幕選單 (.nav-links) 樣式 --- */
+
+.nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex; /* 預設為水平排列 (寬螢幕樣式) */
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links a {
+    color: var(--text-light);
+    text-decoration: none;
+    padding: 5px 10px;
+    display: block;
+    transition: color 0.3s ease, background-color 0.3s ease;
+    border-bottom: 2px solid transparent;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--accent-color);
+    border-bottom: 2px solid var(--accent-color);
+}
+
+/* 預設在寬螢幕下隱藏漢堡按鈕 */
+.hamburger-menu {
+    display: none; 
+}
+
+
+/* ==================================== */
+/* 3. 主視覺區 (Hero)          */
+/* ==================================== */
+
+.hero {
+    background-color: var(--dark-blue);
+    color: var(--text-light);
+    text-align: center;
+    padding-top: 120px; /* 修正 padding，避免被 fixed navbar 蓋住 */
+    padding-bottom: 60px; 
+}
+
+.hero h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+    color: var(--accent-color);
+    text-shadow: none;
+}
+
+.hero .subtitle {
+    font-size: 1.5em;
+    margin-bottom: 30px;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: var(--dark-blue); 
+    padding: 15px 30px;
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 0 10px rgba(163, 210, 232, 0.4);
+}
+
+.cta-button:hover {
+    background-color: var(--secondary-color);
+    transform: scale(1.05);
+}
+
+
+/* ==================================== */
+/* 4. 活動介紹與特色           */
+/* ==================================== */
+
+.content-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    margin-bottom: 40px;
+    text-align: left;
+}
+
+.feature-item {
+    flex: 1;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: var(--light-bg); 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    border: 1px solid rgba(163, 210, 232, 0.3);
+}
+
+.feature-item h3 {
+    color: var(--accent-color);
+    border-bottom: 1px solid rgba(163, 210, 232, 0.2);
+    padding-bottom: 5px;
+}
+
+/* --- 活動日期/地點等高框 --- */
+.quick-info-bar {
+    background-color: var(--dark-blue); 
+    padding: 20px 0;
+}
+
+.info-split {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.info-box {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border-radius: 10px;
+    min-height: 100px;
+    transition: transform 0.3s ease;
+    border: 1px solid var(--accent-color);
+    box-shadow: 0 0 10px rgba(163, 210, 232, 0.3);
+}
+
+.info-box:hover {
+    transform: translateY(-5px);
+}
+
+.time-box {
+    background-color: var(--primary-blue);
+    color: var(--text-dark); 
+}
+
+.location-box {
+    background-color: var(--light-bg);
+    color: var(--text-dark);
+}
+
+.info-box .icon {
+    font-size: 3em;
+    margin-right: 15px;
+}
+
+.time-box .icon { color: var(--text-dark); }
+.location-box .icon { color: var(--accent-color); }
+
+.info-box h3 {
+    margin: 0;
+    font-size: 1.3em;
+    font-weight: bold;
+}
+.time-box h3 { color: var(--text-dark); }
+.location-box h3 { color: var(--accent-color); }
+
+.info-box p {
+    margin: 0;
+    font-size: 1.1em;
+    font-weight: normal; 
+}
+
+
+/* ==================================== */
+/* 5. 交通與流程圖             */
+/* ==================================== */
+
+.map-section {
+    background-color: var(--dark-blue); 
+    padding-top: 60px;
+}
+
+.map-embed-container {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+    border: 1px solid rgba(163, 210, 232, 0.1);
+}
+
+.map-link-button {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: var(--dark-blue); 
+    padding: 12px 25px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.map-link-button:hover {
+    background-color: var(--secondary-color);
+}
+
+/* --- 活動流程區塊樣式 --- */
+.activity-flow {
+    margin-top: 60px; 
+    padding-top: 40px;
+    border-top: 1px solid rgba(163, 210, 232, 0.1);
+    text-align: center;
+}
+
+.flow-image {
+    max-width: 700px;
+    width: 90%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); 
+    margin-top: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid rgba(163, 210, 232, 0.1);
+}
+
+
+/* ==================================== */
+/* 6. 精彩回顧 (Gallery)       */
+/* ==================================== */
+
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.photo-item {
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); 
+    transition: transform 0.3s ease;
+    border: 1px solid rgba(163, 210, 232, 0.1);
+}
+
+.photo-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7), 0 0 15px var(--accent-color);
+}
+
+.photo-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+}
+
+
+/* ==================================== */
+/* 7. 報名專區 (Register)      */
+/* ==================================== */
+
+.register {
+    background-color: var(--light-bg); 
+    color: var(--text-dark);
+    padding: 40px 20px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 5px; 
+    margin: 30px auto; 
+    max-width: 900px; 
+    box-shadow: 0 0 15px rgba(163, 210, 232, 0.5);
+    border: 2px solid var(--accent-color);
+}
+
+.register h2 {
+    color: var(--accent-color);
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.register .subtitle {
+    font-size: 1.1em;
+    margin-bottom: 25px;
+}
+
+.register-icon {
+    font-size: 3em;
+    display: block;
+    margin-bottom: 5px;
+    color: var(--accent-color);
+    animation: bounce 2s infinite;
+}
+
+.main-cta-button {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: var(--dark-blue); 
+    padding: 12px 30px;
+    font-size: 1.2em;
+    font-weight: 700;
+    border-radius: 5px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    text-decoration: none; /* 確保沒有下劃線 */
+}
+
+.main-cta-button:hover {
+    background-color: var(--secondary-color);
+    transform: scale(1.05);
+}
+
+.reminder {
+    margin-top: 15px; 
+    font-size: 0.95em;
+    opacity: 0.9;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px);
+    }
+    60% {
+        transform: translateY(-5px);
+    }
+}
+
+/* ==================================== */
+/* 8. 聯絡資訊 (Footer)        */
+/* ==================================== */
+
+.contact {
+    background-color: var(--dark-blue); 
+    color: var(--text-dark); 
+    padding: 40px 20px 20px; 
+    border-top: 5px solid var(--accent-color);
+    text-align: center;
+}
+
+.contact h2 {
+    color: var(--accent-color);
+    margin-bottom: 20px; 
+    font-size: 2em;
+}
+
+.contact ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 15px; 
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.contact li {
+    background-color: var(--light-bg); 
+    flex: 1 1 280px; 
+    padding: 15px; 
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); 
+    font-size: 1.1em;
+    line-height: 1.6;
+    text-align: left;
+    border-left: 5px solid var(--accent-color);
+}
+
+.contact li strong {
+    display: block;
+    font-size: 1.2em;
+    margin-bottom: 5px;
+    color: var(--accent-color);
+}
+
+.contact a {
+    color: var(--text-dark); 
+    text-decoration: none; 
+    transition: color 0.3s;
+}
+
+.contact a:hover {
+    color: var(--accent-color);
+    text-decoration: underline; 
+}
+
+.copyright {
+    margin-top: 20px; 
+    padding-top: 10px;
+    border-top: 1px solid rgba(163, 210, 232, 0.1);
+    font-size: 0.9em;
+    opacity: 0.7;
+}
+
+
+/* ==================================== */
+/* 9. Minimal Footer 樣式 (適用所有內頁) */
+/* ==================================== */
+.minimal-footer {
+    background-color: var(--dark-blue); 
+    color: var(--text-dark); 
+    padding: 10px 20px;
+    border-top: 1px solid rgba(163, 210, 232, 0.1); 
+    text-align: center;
+    font-size: 0.9em;
+    opacity: 0.7;
+}
+
+
+/* ==================================== */
+/* 10. 漢堡選單樣式 (線條尺寸/顏色) */
+/* ==================================== */
+
+.hamburger-menu {
+    display: none; /* 預設在寬螢幕隱藏 */
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 30px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    position: relative; 
+    z-index: 1000;
+    margin-left: 20px;
+}
+
+/* 漢堡三條線的樣式 (確保顏色可見) */
+.hamburger-menu .bar {
+    display: block;
+    width: 100%;
+    height: 3px;
+    margin: 5px 0;
+    
+    background-color: white; /* 確保線條是白色，在深色背景上可見 */
+    
+    transition: all 0.3s ease;
+}
+
+
+/* ==================================== */
+/* 11. 響應式設計 (RWD) 調整 */
+/* ==================================== */
+
+@media (max-width: 1024px) {
+    .photo-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .photo-item img {
+        height: 200px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* --- 通用區塊 RWD --- */
+    .content-grid {
+        flex-direction: column;
+    }
+    .info-split {
+        flex-direction: column;
+    }
+    .photo-grid {
+        grid-template-columns: 1fr; /* 手機上改為單欄 */
+    }
+    .hero h1 {
+        font-size: 2.5em;
+    }
+    .hero {
+        padding-top: 90px;
+    }
+
+
+    /* --- 導覽列 RWD (主要修正區) --- */
+    
+    /* 1. 顯示漢堡選單 (加入 !important 強制顯示) */
+    .hamburger-menu {
+        display: flex !important; /* 🎯 關鍵修正：強制顯示按鈕 */
+        flex-direction: column;
+        justify-content: space-around;
+    }
+
+    .nav-links {
+        display: none; /* 預設隱藏選單連結 */
+        
+        /* 將選單改為垂直的下拉選單樣式 */
+        flex-direction: column;
+        width: 100%; /* 佔滿螢幕寬度 */
+        position: absolute; 
+        top: 70px; /* 從 Navbar 下方開始顯示 */
+        left: 0;
+        right: 0;
+        padding: 10px 0; 
+        background-color: var(--dark-blue); 
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+        text-align: center;
+        z-index: 999;
+    }
+
+    .nav-links li {
+        margin: 0; 
+        width: 100%;
+        border-bottom: 1px solid var(--secondary-color);
+    }
+    
+    .nav-links li:last-child {
+        border-bottom: none;
+    }
+    
+    .nav-links a {
+        padding: 12px; /* 增加點擊區域 */
+        color: var(--accent-color);
+    }
+
+    /* 點擊後顯示 (JavaScript 控制，加入 !important 強制顯示) */
+    .nav-links.active {
+        display: flex !important; /* 🎯 關鍵修正：強制顯示選單內容 */
+    }
+
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 2em;
+    }
+    .cta-button {
+        padding: 12px 25px;
+        font-size: 1em;
+    }
+}
