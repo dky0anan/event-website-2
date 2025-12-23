@@ -87,6 +87,261 @@
                 </div>
             </div>
         </section>
+
+<style>
+    .speakers-section {
+        background-color: var(--light-bg); 
+        padding: 80px 0;
+    }
+    .speakers-grid {
+        display: grid;
+        /* 電腦版自動分配，最大一排 4 個 */
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 20px;
+        margin-top: 40px;
+    }
+    .speaker-card {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 15px;
+        padding: 30px 20px;
+        text-align: center;
+        border: 1px solid rgba(212, 175, 55, 0.1);
+        transition: all 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .speaker-card:hover {
+        transform: translateY(-10px);
+        border-color: #d4af37;
+        background: rgba(255, 255, 255, 0.08);
+    }
+    .speaker-image {
+        width: 130px;
+        height: 130px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 15px;
+        border: 3px solid #d4af37;
+        padding: 4px;
+    }
+    .speaker-name {
+        color: #d4af37;
+        font-size: 1.4em;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+    .speaker-title {
+        color: #ffffff;
+        font-size: 0.9em;
+        opacity: 0.8;
+        margin-bottom: 15px;
+        min-height: 2.4em; /* 確保標題高度一致 */
+        display: block;
+    }
+    .speaker-bio {
+        color: #ddd;
+        font-size: 0.9em;
+        line-height: 1.5;
+        text-align: justify;
+    }
+</style>
+
+<style>
+    .speakers-section {
+        background-color: var(--light-bg); 
+        padding: 80px 0;
+    }
+    .theme-group {
+        margin-bottom: 50px;
+    }
+    /* 主題標題樣式 */
+    .theme-header {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 30px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid rgba(212, 175, 55, 0.3);
+    }
+    .theme-header h3 {
+        color: #d4af37;
+        margin: 0;
+        font-size: 1.8em;
+    }
+    .theme-icon {
+        font-size: 1.5em;
+    }
+
+    /* 講者網格：改為兩兩一組 */
+    .speakers-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 25px;
+    }
+
+    .speaker-card {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 15px;
+        padding: 30px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        display: flex;
+        gap: 20px;
+        align-items: flex-start;
+        transition: all 0.3s ease;
+    }
+    .speaker-card:hover {
+        transform: translateY(-5px);
+        border-color: #d4af37;
+        background: rgba(255, 255, 255, 0.08);
+    }
+    .speaker-image {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid #d4af37;
+        flex-shrink: 0;
+    }
+    .speaker-info {
+        text-align: left; /* 💡 內容向左對齊 */
+    }
+    .speaker-name {
+        color: #d4af37;
+        font-size: 1.3em;
+        font-weight: bold;
+        display: block;
+        margin-bottom: 5px;
+    }
+    .speaker-title {
+        color: #ffffff;
+        font-size: 0.9em;
+        opacity: 0.8;
+        margin-bottom: 12px;
+        display: block;
+    }
+    .speaker-bio {
+        color: #ddd;
+        font-size: 0.92em;
+        line-height: 1.6;
+        margin: 0;
+    }
+
+    @media (max-width: 768px) {
+        .speaker-card {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .speaker-info {
+            text-align: center;
+        }
+    }
+</style>
+
+<section id="speakers" class="section speakers-section">
+    <div class="container">
+        <h2 style="text-align: center;">👨‍🏫 講者介紹</h2>
+        
+        <div class="theme-group">
+            <div class="theme-header">
+                <span class="theme-icon">🎓</span>
+                <h3>招生講座</h3>
+            </div>
+            <div class="speakers-grid">
+                <div class="speaker-card">
+                    <img src="黃紀茸.jpg" alt="講者姓名" class="speaker-image">
+                    <div class="speaker-info">
+                        <span class="speaker-name">黃紀茸博士</span>
+                        <span class="speaker-title">國立成功大學 教務處助理研究員</span>
+                        <p class="speaker-bio">
+                            <strong>研究成果：</strong><br>
+評估跨學科學習經驗中的自我效能感以及職業相關預測因素的影響<br>
+從研究論文中提取演變趨勢：高等教育跨學科研究的統合分析<br>
+基於深度學習和資料預處理的短期電力負載預測整合模型<br>
+基於多感測器情境感知的聊天機器人模型：人形陪伴機器人的應用<br><br>
+
+                        </p>
+                    </div>
+                </div>
+                <div class="speaker-card">
+                    <img src="楊慶隆.jpg" alt="講者姓名" class="speaker-image">
+                    <div class="speaker-info">
+                        <span class="speaker-name">楊慶隆教授</span>
+                        <span class="speaker-title">國立成功大學 電機工程學系 副主任/教授</span>
+                        <p class="speaker-bio">
+                            <strong>最高學歷</strong>：2007美國普度大學電機工程博士<br><br>
+                            <strong>特殊榮譽</strong>：<br>
+•	領導之無線創新系統電磁應用實驗室榮獲電資學院前1%最佳實驗室<br>
+•	指導碩士生畢業論文榮獲108年度中國電機工程學會(CIEE)最佳碩士論文獎<br>
+•	指導碩士生通過 106-109AP-US1“微波流速計與流速量測方法”美國發明專利證書<br><br>
+
+<strong>研究專長</strong><br>
+•	獵能技術Energy Harvesting及轉換電路、軟性電子<br>
+•	植入式天線 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•無線傳輸電力<br>
+•	無線生醫應用、生醫檢測儀器 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•RFIC、無線感測網路(WSN)、分集化設計<br>
+•	整合微波前端電路&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•微波感測器
+	
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="theme-group">
+            <div class="theme-header">
+                <span class="theme-icon">⚡</span>
+                <h3>科技講座</h3>
+            </div>
+            <div class="speakers-grid">
+                <div class="speaker-card">
+                    <img src="解巽評.jpg" alt="詹寶珠 教授" class="speaker-image">
+                    <div class="speaker-info">
+                        <span class="speaker-name">解巽評教授</span>
+                        <span class="speaker-title">國立成功大學 電機工程學系 教授</span>
+                        <p class="speaker-bio">
+                            <strong>最高學歷</strong>：2015臺灣大學資訊網路與多媒體研究所博士<br><br>
+                            <strong>特殊榮譽</strong>：<br>
+•	114年度國科會2030跨世代年輕學者方案-優秀年輕學者計畫<br>
+•	ACM KDD 2024 Test of Time Award，為近十年在AI數據科學領域中最具備國際影響力的論文。<br>
+•	2023獲知名國際學術影響力分析網站 AMiner 評選為全球 AI 資料探勘領域近十年(2013-2022)最具影響力百大學者(臺灣唯一入選學者)。<br>
+•	指導學生獲得榮獲8th (ICKII) 2025 BEST CONFERENCE PAPER AWARD<br><br>
+<strong>研究專長</strong><br>
+•	大數據資料分析與探勘&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•機器學習<br>
+•	感測連結網路運算&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•城市科學與計算<br>
+•	智慧城市與物聯網應用&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;•社群網路分析<br>
+•	時空資訊計算
+
+                        </p>
+                    </div>
+                </div>
+                <div class="speaker-card">
+                    <img src="莊智清.jpg" alt="江孟學 教授" class="speaker-image">
+                    <div class="speaker-info">
+                        <span class="speaker-name">莊智清教授</span>
+                        <span class="speaker-title">國立成功大學 電機工程學系 教授</span>
+                        <p class="speaker-bio">
+                           <strong>最高學歷</strong>：1987美國南加州大學電機博士<br><br>
+                           <strong>特殊榮譽</strong>：<br>
+•	教育部97學年度全國大學院校嵌入式系統(ES)設計競賽─軟硬體整合組優等<br>
+•	2018未來科技展未來科技突破獎<br>
+•	2022臺灣創新技術博覽會獲未來科技獎<br>
+•	112年度國科會傑出成就獎<br><br>
+<strong>研究專長</strong><br>
+•	航空工程(衛星姿控、導引控制)<br>
+•	控制工程(強健控制、伺服控制)<br>
+•	電子導航(全球定位系統)<br>
+
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
         
     </main>
 
