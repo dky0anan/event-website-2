@@ -6,6 +6,35 @@
     <title>【2026 鳳凰科技教師研習營】官方網站</title> 
     <link rel="stylesheet" href="style.css">
     <style>
+        /* 🎯 新增：圖片放大的彈窗樣式 */
+        .image-modal {
+            display: none; 
+            position: fixed;
+            z-index: 1000;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+            cursor: zoom-out;
+        }
+        .modal-content {
+            max-width: 90%;
+            max-height: 85%;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+            transition: transform 0.3s ease;
+        }
+        .image-modal.active {
+            display: flex;
+        }
+        .photo-item {
+            cursor: zoom-in;
+        }
+
+        /* 保留您的原始樣式 */
         .feedback-section {
             margin-top: 80px;
             padding-bottom: 60px;
@@ -41,7 +70,7 @@
             gap: 10px;
         }
 
-        /* 🎯 這是新增的每條心得小框框樣式 */
+      
         .comment-item {
             background: rgba(255, 255, 255, 0.07); /* 微亮的小框框 */
             border-radius: 10px;
@@ -83,7 +112,7 @@
             <li><a href="map.html">交通資訊</a></li> 
             <li><a href="gallery.html" class="active">精彩回顧</a></li>
             <li><a href="register.html">報名專區</a></li>
-            <li><a href="contact.html">聯絡資訊</a></li>
+            <li><a href="contact.html">相關資訊</a></li>
         </ul>
     </div>
 </nav>
@@ -94,14 +123,14 @@
         <p class="subtitle" style="text-align: center;">2025 鳳凰科技教師研習營</p>
         
         <div class="photo-grid">
-            <div class="photo-item"><img src="photo1.jpg" alt="照片 1"></div>
-            <div class="photo-item"><img src="photo2.jpg" alt="照片 2"></div>
-            <div class="photo-item"><img src="photo3.jpg" alt="照片 3"></div>
-            <div class="photo-item"><img src="photo4.jpg" alt="照片 4"></div>
-            <div class="photo-item"><img src="photo5.jpg" alt="照片 5"></div>
-            <div class="photo-item"><img src="photo8.jpg" alt="照片 8"></div>
-            <div class="photo-item"><img src="photo9.png" alt="照片 9"></div>
-            <div class="photo-item"><img src="photo11.png" alt="照片 11"></div>
+            <div class="photo-item"><img src="photo1.JPG" alt="照片 1"></div>
+            <div class="photo-item"><img src="photo2.JPG" alt="照片 2"></div>
+            <div class="photo-item"><img src="photo3.JPG" alt="照片 3"></div>
+            <div class="photo-item"><img src="photo4.JPG" alt="照片 4"></div>
+            <div class="photo-item"><img src="photo5.JPG" alt="照片 5"></div>
+            <div class="photo-item"><img src="photo8.JPG" alt="照片 8"></div>
+            <div class="photo-item"><img src="photo9.PNG" alt="照片 9"></div>
+            <div class="photo-item"><img src="photo11.PNG" alt="照片 11"></div>
         </div>
 
         <div class="feedback-section">
@@ -114,7 +143,7 @@
                     <div class="comment-item">：對大學教授如何看待目前學生的審查資料有更清楚的看法。</div>
                     <div class="comment-item">：可以更直接了解大學端看待學習歷程的態度，十分有收穫。</div>
                     <div class="comment-item">：更加了解大學端教授會想要的學習歷程內容,可以針對著重的點做準備,避免掉一些不需要的內容。</div>
-                    <div class="comment-item">：在會中與會後聚餐中都有機會和主講人交流，也盡其所知分享了，收穫頗豐碩，而且其專業知識與工作內容都透徹了解，所有問題都能從容回答，絕對令人放心將學生交給成大電機普渡組。</div>
+                    <div class="comment-item">：在會中與會後聚餐中都有機會和主講人交流，收穫頗豐碩。</div>
                 </div>
 
                 <div class="feedback-card">
@@ -124,7 +153,7 @@
                     <div class="comment-item">：領域非常專業，見解深刻。</div>
                     <div class="comment-item">：對於研究生的研究重點有較實務、較具體的瞭解。</div>
                     <div class="comment-item">：研究生們很認真分享，很棒的經驗！</div>
-                    <div class="comment-item">：很棒的經驗，以小組方式實際參觀實驗室，參觀學生們的研究，可更深入的了解其設計的歷程與目標。</div>
+                    <div class="comment-item">：很棒的經驗，以小組方式實際參觀實驗室。</div>
                 </div>
 
                 <div class="feedback-card">
@@ -133,16 +162,16 @@
                     <div class="comment-item">：能夠自己做出小成品帶回家，而且是生活上實用的東西，覺得很棒！</div>
                     <div class="comment-item">：比想像中的有趣且實用，教材上還將每個老師的名字刻上，令人感動。</div>
                     <div class="comment-item">：雖然是第一次嘗試，但收穫很多，了解電路連接方式與工具使用。</div>
-                    <div class="comment-item">：這是此次的大亮點，充分結合專業與實作，很多步驟、動作都是第一次嘗試(例如焊接)，教師群也能盡力協助學員完成，更從中了解基礎的線路知識、音聲原理，實務上也認識材料取得來源，使學員有興趣可以自行在家操作。</div>
+                    <div class="comment-item">：這是此次的大亮點，充分結合專業與實作。</div>
                 </div>
 
                 <div class="feedback-card">
                     <div class="card-category"><span>✨</span> 4. 整體心得或意見</div>
-                    <div class="comment-item">：除了增進自己的新知識、新想法，也更能增進對成大電機系所的認識。（很感動系所教授都是真心為學生努力不懈，令人敬佩)</div>
+                    <div class="comment-item">：除了增進自己的新知識、新想法，也更能增進對成大電機系所的認識。</div>
                     <div class="comment-item">：感謝成大電機，讓我們在指導學生時，有較多較正確的資訊可以提供。</div>
                     <div class="comment-item">：謝謝成大電機系的安排，能讓高中老師對成大電機的辦學與特色有更多的理解與認同。</div>
                     <div class="comment-item">：很充實,也能夠讓我們從中更了解電機系所學與生活中的連結應用。</div>
-                    <div class="comment-item">：很感謝成大電機辦的營隊！讓我對電機電子領域有更深入的了解,未來在上生涯輔導課程可以給學生更多資訊！！</div>
+                    <div class="comment-item">：很感謝成大電機辦的營隊！未來在上生涯輔導課程可以給學生更多資訊！！</div>
                     <div class="comment-item">：希望還會有機會參與成大辦的營隊！</div>
                 </div>
             </div>
@@ -150,13 +179,34 @@
     </div>
 </main>
 
+<div id="imageModal" class="image-modal">
+    <img class="modal-content" id="imgFullSize">
+</div>
+
 <footer class="minimal-footer">
     <div class="container">
         <p class="copyright">© 2026 鳳凰科技教師研習營 | 國立成功大學電機工程學系 主辦</p>
     </div>
 </footer>
 
+<script>
+    /* 🎯 圖片放大與縮小邏輯 */
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("imgFullSize");
+    const photoItems = document.querySelectorAll(".photo-item img");
+
+    photoItems.forEach(img => {
+        img.onclick = function() {
+            modal.classList.add("active");
+            modalImg.src = this.src;
+        }
+    });
+
+    modal.onclick = function() {
+        modal.classList.remove("active");
+    }
+</script>
+
 <script src="script.js"></script>
 </body>
-
 </html>
