@@ -26,12 +26,86 @@
             <li><a href="map.html">交通資訊</a></li> 
             <li><a href="gallery.html">精彩回顧</a></li>
             <li><a href="register.html">報名專區</a></li>
-            <li><a href="contact.html" class="active">聯絡資訊</a></li>
+            <li><a href="contact.html" class="active">相關資訊</a></li>
         </ul>
     </div>
 </nav>
 
-    <main id="contact-section" class="section contact" style="padding-top: 120px;">
+<style>
+    .notice-section {
+        /* 💡 加大與上方（如導覽列）的間距 */
+        padding-top: 100px; 
+        padding-bottom: 20px;
+    }
+    .notice-title {
+        color: #d4af37;
+        text-align: center;
+        /* 💡 字型縮小（原本為 2.2em） */
+        font-size: 1.6em; 
+        margin-bottom: 30px;
+        letter-spacing: 2px; /* 稍微增加字距讓它更有質感 */
+    }
+    .notice-container {
+        max-width: 900px;
+        margin: 0 auto;
+        background: rgba(255, 255, 255, 0.03);
+        padding: 30px;
+        border-radius: 20px;
+        border: 1px solid rgba(212, 175, 55, 0.2);
+    }
+    .notice-item {
+        background: rgba(212, 175, 55, 0.05);
+        border-left: 4px solid #d4af37;
+        padding: 15px 20px;
+        margin-bottom: 15px;
+        border-radius: 8px;
+        color: #ffffff;
+        line-height: 1.6;
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        text-align: left;
+    }
+    .notice-item:last-child {
+        margin-bottom: 0;
+    }
+    .notice-icon {
+        font-size: 1.2em;
+    }
+    .notice-item strong {
+        color: #d4af37;
+        font-weight: bold;
+    }
+</style>
+
+<section class="section notice-section">
+    <div class="container">
+        <h2 class="notice-title">⚠️ 注意事項</h2>
+        
+        <div class="notice-container">
+            <div class="notice-item">
+                <span class="notice-icon">🕘</span>
+                <span><strong>準時報到：</strong>為維護<strong>研習品質與活動順暢</strong>，敬請各位老師準時抵達。</span>
+            </div>
+
+            <div class="notice-item">
+                <span class="notice-icon">💧</span>
+                <span><strong>飲水安排：</strong>為響應環保減塑，會場設有<strong>飲水機</strong>，敬請學員<strong>自備環保杯或水壺</strong>使用。</span>
+            </div>
+
+            <div class="notice-item">
+               <span class="notice-icon">🧥</span>
+               <span><strong>天氣提醒：</strong>近日天氣多變，<strong>早晚溫差較大</strong>，提醒各位老師適時增減衣物，建議隨身攜帶<strong>薄外套</strong>以免受涼。</span>
+            </div>
+
+            <div class="notice-item">
+               <span class="notice-icon">💳</span>
+               <span><strong>攜帶證件：</strong>為辦理報到手續與身分核對，請參與老師隨身攜帶<strong>教師證</strong>。</span>
+            </div>
+        </div>
+    </div>
+</section>
+    <mainid="contact-section" class="section contact" style="padding-top: 120px;">
         <div class="container">
             <h2>📞 聯絡我們</h2>
             <p>如果您有任何疑問，歡迎透過以下方式與我們聯繫：</p>
@@ -40,13 +114,13 @@
                 <li>
                     <strong>電子郵件：</strong>
                     <p><a href="mailto:z11108176@ncku.edu.tw">z11108176@ncku.edu.tw</a></p>
-                    <p style="font-size: 0.9em; opacity: 0.8;">主要聯絡方式</p>
+                    <p style="font-size: 0.9em; opacity: 0.8;">主要聯絡方式 蕭小姐</p>
                 </li>
                 
                 <li>
                     <strong>聯絡電話：</strong>
                     <p><a href="tel:+88662757575,62370">+886-6-2757575 分機 62370</a></p>
-                    <p style="font-size: 0.9em; opacity: 0.8;">活動承辦人</p>
+                    <p style="font-size: 0.9em; opacity: 0.8;">活動承辦人 蕭小姐</p>
                 </li>
                 
                 <li>
@@ -65,6 +139,8 @@
 
             </ul>
         </div>
+
+
     </main>
 
     <footer class="minimal-footer">
