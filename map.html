@@ -3,153 +3,271 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>【2026 鳳凰科技教師研習營】官方網站</title> 
+    <title>交通資訊 - 鳳凰科技教師研習營</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        /* 讓地圖區塊更寬 */
-        .wide-map-section {
-            width: 100%;
-            max-width: 1400px; 
-            margin: 0 auto;
-            padding: 0 20px; 
+        /* 🎯 全域與容器寬度調整 */
+        :root {
+            --accent-gold: #d4af37;
         }
 
+        .wide-map-section {
+            width: 100%;
+            max-width: 1000px; 
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 🎯 Google Maps 嵌入區塊 */
         .map-embed-container {
             width: 100%;
-            border-radius: 15px; 
+            border-radius: 20px;
             overflow: hidden;
             box-shadow: 0 8px 30px rgba(0,0,0,0.5);
             margin-bottom: 30px;
+            border: 1px solid rgba(212, 175, 55, 0.2);
         }
 
-        /* 保持原本的並列樣式 */
-        .parallel-container {
+        /* 🎯 並列圖片地圖區塊 - 實作 7:3 比例 */
+        .map-grid {
             display: flex;
-            flex-wrap: wrap; 
-            gap: 40px;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-top: 40px;
+            gap: 25px;
+            justify-content: center;
+            align-items: stretch;
+            flex-wrap: wrap;
+            margin-top: 50px;
         }
 
-        .column-half {
-            flex: 1;
-            min-width: 350px;
+        .map-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 20px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
         }
 
-        .section-title {
+        .map-card.large {
+            flex: 7; 
+            min-width: 500px; 
+        }
+
+        .map-card.small {
+            flex: 3; 
+            min-width: 300px;
+        }
+
+        .map-header {
             color: var(--accent-gold);
-            font-size: 2.2em;
-            margin-bottom: 20px;
-            text-align: center;
-            border-bottom: 2px solid rgba(212, 175, 55, 0.3);
-            padding-bottom: 10px;
-        }
-
-        .info-text {
-            color: var(--text-secondary);
-            font-size: 1.1em;
-            line-height: 1.6;
+            font-size: 1.2em;
+            font-weight: bold;
             margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        .column-half img {
-            width: 85%;
-            height: auto;
-            border-radius: 12px;
-            border: 1px solid rgba(255,255,255,0.1);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
-            margin-bottom: 20px;
+        /* 🎯 圖片填滿設定 */
+        .map-image-wrapper {
+            width: 100%;
+            height: 600px; 
+            border-radius: 20px; /* 修正：原本 60px 稍微過圓，改為 20px 較協調 */
+            overflow: hidden;
+            position: relative;
+            background: #1a1a1a;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .map-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+            display: block;
+            cursor: zoom-in;
+            transition: transform 0.4s ease;
+        }
+        
+        .map-image-wrapper img:hover {
+            transform: scale(1.05);
+        }
+
+        .map-info {
+            margin-top: 20px;
+            color: #ffffff;
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+
+        .map-info strong {
+            color: var(--accent-gold);
+        }
+
+        /* 💡 已移除 .zoom-box 相關樣式 */
+
+        /* --- 🎯 圖片放大彈窗 (Lightbox) --- */
+        .image-modal {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            justify-content: center;
+            align-items: center;
+            cursor: zoom-out;
+            padding: 20px;
+        }
+
+        .modal-content {
+            max-width: 95%;
+            max-height: 95%;
+            object-fit: contain;
+            animation: zoomIn 0.3s ease;
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.9); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
         }
 
         @media (max-width: 992px) {
-            .parallel-container {
-                flex-direction: column;
+            .map-card.large, .map-card.small {
+                flex: 1 1 100%;
+                min-width: 100%;
             }
+            .map-image-wrapper { height: 350px; }
         }
     </style>
 </head>
 <body>
     
-    <nav class="navbar">
-        <div class="container">
-            <a href="index.html" class="site-logo">
-                <img src="logo.png" alt="Logo" class="logo-image">
-            </a>
-            
-            <button class="hamburger-menu" aria-label="Toggle navigation">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </button>
-            
-            <ul class="nav-links" id="nav-links">
-                <li><a href="index.html">首頁</a></li>
-                <li><a href="about.html">活動介紹</a></li> 
-                <li><a href="map.html" class="active">交通資訊</a></li> 
-                <li><a href="gallery.html">精彩回顧</a></li>
-                <li><a href="register.html">報名專區</a></li>
-                <li><a href="contact.html">聯絡資訊</a></li>
-            </ul>
-        </div>
-    </nav>
-
-<main class="section" style="padding-top: 120px;">
-    <div class="container" style="text-align: center; margin-bottom: 40px;">
-        <h2>實體課程地點</h2>
-        <p class="subtitle">國立成功大學電機系館 / 啟端館 openlab (台南市東區大學路 1 號)</p>
+<nav class="navbar">
+    <div class="container">
+        <a href="index.html" class="site-logo">
+            <img src="logo.png" alt="Logo" class="logo-image">
+        </a>
+        <button class="hamburger-menu" aria-label="Toggle navigation">
+            <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+        </button>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="index.html">首頁</a></li>
+            <li><a href="about.html">活動介紹</a></li> 
+            <li><a href="map.html" class="active">交通資訊</a></li> 
+            <li><a href="gallery.html">精彩回顧</a></li>
+            <li><a href="register.html">報名專區</a></li>
+            <li><a href="contact.html">相關資訊</a></li>
+        </ul>
     </div>
+</nav>
 
+<main class="section" style="padding-top: 140px; padding-bottom: 80px;">
     <div class="wide-map-section">
+        <div style="text-align: center; margin-bottom: 40px;">
+            <h2 style="color: var(--accent-gold); font-size: 2.2em; margin-bottom: 10px;">📍 課程地點</h2>
+            <p class="subtitle">國立成功大學電機系館 / 啟端館 Openlab (台南市東區大學路 1 號)</p>
+            <p>📌 <strong>報到處：</strong> 電機系館一樓大廳</p>
+        </div>
+
         <div class="map-embed-container">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3672.7367130030675!2d120.2199676756202!3d22.996707279191995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e7694a879f56b%3A0x5cd808e8814beed1!2z5ZyL56uL5oiQ5Yqf5aSn5a246Zu75qmf5bel56iL5a2457O7!5e0!3m2!1szh-TW!2stw!4v1766296319761!5m2!1szh-TW!2stw" width="100%" height="500" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
         </div>
         
         <div style="text-align: center; margin-bottom: 60px;">
-            <a href="https://maps.app.goo.gl/Gu1cqCWm24hWfNJp8" target="_blank" class="map-link-button">
-                導航至活動地點 (Google Maps)
+            <a href="https://maps.app.goo.gl/Gu1cqCWm24hWfNJp8" target="_blank" class="main-cta-button" style="padding: 15px 40px;">
+                使用 Google 地圖導覽 →
             </a>
         </div>
-    </div>
 
-    <div class="container">
-        <hr style="opacity: 0.1; margin-bottom: 50px;">
+        <hr style="border: 0; border-top: 1px solid rgba(212, 175, 55, 0.2); margin: 60px 0;">
 
-        <div class="parallel-container">
-            <div class="column-half">
-                <h3 class="section-title">🚗 停車資訊</h3>
-                <p class="info-text">建議參考下方自強校區停車格分布地圖，紅色線(或其框框範圍內)為設有停車格之區域。</p>
-                <a href="CAR.png" target="_blank">
-                    <img src="CAR.png" alt="停車地圖">
-                </a>
-                <p style="color: var(--text-secondary); font-size: 0.95em;">
-                    或請參考：<a href="https://serv-oga.ncku.edu.tw/p/450-1057-29978,c1.php?Lang=zh-tw" target="_blank" style="color: var(--accent-gold); text-decoration: underline;">校園周邊汽車停車場資訊</a>
-                </p>
+        <h2 style="text-align: center; color: var(--accent-gold); margin-bottom: 40px;">🗺️ 如何抵達&停車資訊</h2>
+        
+        <div class="map-grid">
+            <div class="map-card large">
+                <div class="map-header">🌏 成大校區週邊概圖</div>
+                <div class="map-image-wrapper">
+                    <img src="map3.jpg" alt="成大週邊地圖" class="clickable-map">
+                    </div>
+                <div class="map-info">
+                    <p>位於台南火車站後站出口，延大學路步行約 15 分鐘即可抵達自強校區入口。</p>
+                </div>
             </div>
 
-            <div class="column-half">
-                <h3 class="section-title">📍 入口位置</h3>
-                <p class="info-text" style="margin-top: 45px; font-weight: bold; color: var(--accent-gold);">📍電機系館</p>
-                <a href="map1.jpg" target="_blank">
-                    <img src="map1.jpg" alt="入口 1">
-                </a>
-                <p class="info-text" style="margin-top: 20px; font-weight: bold; color: var(--accent-gold);">📍啟端館</p>
-                <a href="map2.jpg" target="_blank">
-                    <img src="map2.jpg" alt="入口 2">
-                </a>
+            <div class="map-card small">
+                <div class="map-header">🔍 自強校區</div>
+                <div class="map-image-wrapper">
+                     <img src="CAR.jpg" alt="電機系館入口" class="clickable-map">
+                </div>
+                <div class="map-info">
+                    <p>建議停放於自強校區平面停車場。</p>
+                </div>
             </div>
         </div>
     </div>
+
+<section class="section map-display-section" style="padding-top: 100px;">
+    <div class="container">
+        <h2 style="text-align: center; color: #d4af37;">📍 會場位置指引</h2>
+        <p class="subtitle" style="text-align: center; margin-bottom: 10px;">成大電機系館（自強校區）</p>
+        <p>📌 <strong>報到處：</strong> 電機系館一樓大廳</p>
+
+        <div class="map-flex-container">
+            <div class="map-overview">
+                <div class="map-label">📍電機系館</div>
+                <img src="map1.jpg" alt="成大大範圍地圖">
+                <div class="zoom-indicator"></div>
+            </div>
+
+            <div class="map-connector">
+                <span class="line"></span>
+            </div>
+
+            <div class="map-detail">
+                <div class="map-label">📍啟端館</div>
+                <img src="map2.jpg" alt="電機系館詳細地圖">
+                <div class="detail-description">
+                    
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
 </main>
+
+<div id="imageModal" class="image-modal">
+    <img class="modal-content" id="imgFullSize">
+</div>
 
 <footer class="minimal-footer">
     <div class="container">
-        © 2026 鳳凰科技教師研習營 | 國立成功大學電機工程學系 主辦
+        <p class="copyright">© 2026 鳳凰科技教師研習營 | 國立成功大學電機工程學系</p>
     </div>
 </footer>
 
 <script src="script.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const modal = document.getElementById("imageModal");
+        const modalImg = document.getElementById("imgFullSize");
+        const mapImages = document.querySelectorAll(".clickable-map");
+
+        mapImages.forEach(img => {
+            img.addEventListener('click', function() {
+                modal.style.display = "flex";
+                modalImg.src = this.src;
+            });
+        });
+
+        modal.addEventListener('click', function() {
+            modal.style.display = "none";
+        });
+    });
+</script>
+
+
 </body>
-
 </html>
-
