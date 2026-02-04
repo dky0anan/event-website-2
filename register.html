@@ -5,10 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>報名專區 - 鳳凰科技教師研習營</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* 🎯 統一兩個框框的樣式控制 */
+        .registration-container {
+            max-width: 900px; /* 統一最大寬度 */
+            margin: 0 auto;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.03); /* 統一背景深淺 */
+            border-radius: 20px;
+            border: 1px solid rgba(212, 175, 55, 0.2); /* 統一金色微邊框 */
+            text-align: center;
+        }
+
+        .section-spacing {
+            margin-bottom: 50px; /* 區塊間距 */
+        }
+    </style>
 </head>
 <body>
     
-    <nav class="navbar">
+<nav class="navbar">
     <div class="container">
         <a href="index.html" class="site-logo">
             <img src="logo.png" alt="您的營隊名稱 Logo" class="logo-image">
@@ -25,35 +41,42 @@
             <li><a href="about.html">活動介紹</a></li> 
             <li><a href="map.html">交通資訊</a></li> 
             <li><a href="gallery.html">精彩回顧</a></li>
-            <li><a href="register.html">報名專區</a></li>
-            <li><a href="contact.html">聯絡資訊</a></li>
+            <li><a href="register.html" class="active">報名專區</a></li>
+            <li><a href="contact.html">相關資訊</a></li>
         </ul>
     </div>
 </nav>
 
-    <main id="register-main-section" class="section" style="padding-top: 150px; padding-bottom: 50px;">
+<main id="register-main-section" class="section" style="padding-top: 150px; padding-bottom: 80px;">
+    <div class="container">
         
-        <div class="register"> 
-            
-            <div class="container">
-                <span class="register-icon">🚀</span>
-                <h2>開始您的鳳凰旅程</h2>
-                <p class="subtitle">名額有限，請盡快完成線上報名，以免向隅。</p>
-                <a href="https://docs.google.com/forms/d/e/1FAIpQLScOPOP3DmC-EX7xYMtH_1wx1zb8ji2UYvHgjLaqbGkGLvcakw/viewform?usp=preview" target="_blank" class="main-cta-button">
-                    立即前往報名表單 →
-                </a>
-                <p class="reminder">報名截止日期：2026 年 1 月 7 日</p>
-            </div>
-            
+        <div class="registration-container section-spacing"> 
+            <span class="register-icon" style="display: block; font-size: 3em; margin-bottom: 10px;">🚀</span>
+            <h2 style="margin-bottom: 10px;">開始您的鳳凰旅程</h2>
+            <p class="subtitle" style="margin-bottom: 25px;">名額有限，請盡快完成線上報名，以免向隅。</p>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScOPOP3DmC-EX7xYMtH_1wx1zb8ji2UYvHgjLaqbGkGLvcakw/viewform?usp=preview" target="_blank" class="main-cta-button">
+                立即前往報名表單 →
+            </a>
+            <p class="reminder" style="margin-top: 20px; opacity: 0.8; font-size: 0.9em;">報名截止日期：2026 年 1 月 7 日</p>
         </div>
-    </main>
 
-    <footer class="minimal-footer">
-        <div class="container">
-            <p class="copyright">© 2026 鳳凰科技教師研習營</p>
+        <div class="registration-container">
+            <h2 style="color: #d4af37; margin-bottom: 15px;">📦 參與成員相關資訊</h2>
+            <p style="margin-bottom: 30px; opacity: 0.9;">點此查看並下載參與成員相關資訊。</p>
+            <a href="https://docs.google.com/spreadsheets/d/1_SaqFmwtBJ0ymxbfEThgE2zLn94UskqQF6ELjPgiZZU/edit?usp=sharing" target="_blank" class="main-cta-button" style="font-size: 0.95em; padding: 12px 30px;">
+                前往 Google Sheet →
+            </a>
         </div>
-    </footer>
 
-    <script src="script.js"></script>
+    </div>
+</main>
+
+<footer class="minimal-footer">
+    <div class="container">
+        <p class="copyright">© 2026 鳳凰科技教師研習營</p>
+    </div>
+</footer>
+
+<script src="script.js"></script>
 </body>
 </html>
